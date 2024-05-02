@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# The use of while loop to generate best school 10 times
+
+
+i=0
+while [ $i -lt 10 ]
+do
+    echo "Best School"
+    ((i++))
+done
