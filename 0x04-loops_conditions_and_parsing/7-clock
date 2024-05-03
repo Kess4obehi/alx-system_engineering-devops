@@ -9,7 +9,7 @@ while [ $hour -le 12 ]
 do
     echo "Hour: $hour"
     minute=o
-    while [ $minute -lt 60 ]
+    while [ $minute -le 59 ]
     do
         echo "$minute"
         ((minute++))
