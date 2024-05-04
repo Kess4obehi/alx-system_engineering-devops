@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # A Bash script that displays lines containing the bash word, and its pid
 
-ps -aux | grep bash
+ps auxf | grep bash
