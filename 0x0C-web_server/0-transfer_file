@@ -5,5 +5,5 @@ if ["$#" -lt 3]; then
 elif ["$#" -lt 4]; then
 	echo scp -o StrictHostKeyChecking=no "$1" "$3@$2":~/
 else
-	echo scp -i "$4" StrictHostKeyChecking=no "$1" "$3@$2":~/
+	echo scp -i "$4" -o StrictHostKeyChecking=no "$1" "$3@$2":~/
 fi
