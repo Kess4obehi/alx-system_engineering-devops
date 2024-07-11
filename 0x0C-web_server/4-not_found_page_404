@@ -18,4 +18,5 @@ sudo sed -i "s/listen 80 default_server;/$string_to_replace/" /etc/nginx/sites-e
 
 #restart nginx after implementing changes
 
+sudo nginx -t
 sudo service nginx restart
