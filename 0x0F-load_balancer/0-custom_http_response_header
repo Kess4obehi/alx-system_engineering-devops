@@ -17,7 +17,7 @@ string_to_replace="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlo
 sudo sed -i "s/listen 80 default_server;/$string_to_replace/" /etc/nginx/sites-enabled/default
 
 # custom HTTP response header
-sudo sed -i "server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+sudo sed -i "/server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
 
 # test for syntax errors
 sudo nginx -t
