@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#install load balancer
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+sudo chown $USER:USER /etc/haproxy/haproxy.cfg
+
+echo "
+frontend dev-kess
+    bind *:80
+    mode http
+    default_backend kess
+
+backend kess
+    balance roundrobin
+    server 298246-web-01 35.153.18.64:80 check
+    server 298246-web-02 34.232.67.153:80 check" >> /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
