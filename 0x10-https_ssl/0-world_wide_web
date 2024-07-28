@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# accepts two args
+
+display_info ()
+{
+	domain="$1"
+	subdom="$2"
+
+	dig"$subdom.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="subdom"
+}
+
+for subdom in "www" "lb-01" "web-01" "web-02"
+do
+	if [ -z "$2" ] || [ "$2" == "$subdom" ];
+	then
+		display_info "$1" "$subdom"
+	fi
+done
